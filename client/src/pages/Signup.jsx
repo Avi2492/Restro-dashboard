@@ -3,6 +3,7 @@ import { RiRestaurant2Fill } from "@remixicon/react";
 
 import React from "react";
 import Logo from "../components/logo/Logo";
+import SignupWithOtp from "../components/auth/SignupWithOtp";
 
 const Signup = () => {
   return (
@@ -12,7 +13,9 @@ const Signup = () => {
           <Box display={{ base: "none", md: "block" }}>
             <Logo />
           </Box>
-          <VStack spacing={4} align={"stretch"}></VStack>
+          <VStack spacing={4} align={"stretch"}>
+            <SignupWithOtp />
+          </VStack>
         </Flex>
       </Container>
     </Flex>

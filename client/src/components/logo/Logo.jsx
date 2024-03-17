@@ -9,7 +9,7 @@ const Logo = () => {
         <RiRestaurant2Fill size={40} />
       </Box>
       <Text fontSize={"x-large"} as={"i"}>
-        radp
+        Vegialor
       </Text>
     </Box>
   );

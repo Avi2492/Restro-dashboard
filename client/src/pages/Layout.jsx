@@ -9,9 +9,7 @@ const Layout = () => {
     <div className="flex flex-col min-h-screen">
       <Header />
       <Outlet />
-      <Hero />
-      <Outlet />
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 };

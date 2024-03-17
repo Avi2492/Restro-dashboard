@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { RiCloseLine, RiMenuLine } from "@remixicon/react";
 import Logo from "../logo/Logo";
+import { Button, Stack, Text } from "@chakra-ui/react";
 const menuItems = [
   {
     name: "Home",
@@ -24,7 +25,7 @@ const Header = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   return (
-    <div className="relative w-full">
+    <div className="relative w-full shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
         <div className="inline-flex items-center space-x-2">
           <Link to={"/"}>
@@ -36,44 +37,56 @@ const Header = () => {
         <div className="hidden lg:block">
           <ul className="inline-flex space-x-8">
             {menuItems.map((item) => (
-              <li key={item.name}>
+              <Text key={item.name}>
                 <Link
                   to={item.to}
-                  className="text-sm font-semibold text-white hover:underline"
+                  className="text-xl italic font-semibold text-white hover:underline"
                 >
                   {item.name}
                 </Link>
-              </li>
+              </Text>
             ))}
           </ul>
         </div>
         <div className="hidden lg:block">
-          <Link to={"/signup"}>
-            <span className="flex space-x-2 bg-white rounded-md p-2 text-orange-500 cursor-pointer hover:bg-orange-300 hover:text-white">
-              Sign Up
-            </span>
-          </Link>
+          <Stack spacing={4} direction="row" align="center">
+            <Link to={"/signup"}>
+              <Button colorScheme="red" variant="outline" fontStyle={"italic"}>
+                Sign Up
+              </Button>
+            </Link>
+            <Text>or</Text>
+            <Link to={"/login"}>
+              <Button
+                colorScheme="green"
+                variant="outline"
+                fontStyle={"italic"}
+              >
+                Login
+              </Button>
+            </Link>
+          </Stack>
         </div>
         <div className="lg:hidden">
           <RiMenuLine onClick={toggleMenu} className="h-6 w-6 cursor-pointer" />
         </div>
         {isMenuOpen && (
           <div className="absolute inset-x-0 top-0 z-50 origin-top-right transform p-2 transition lg:hidden">
-            <div className="divide-y-2 divide-gray-50 rounded-lg bg-white shadow-lg ring-1  ring-opacity-5">
+            <div className="divide-y-2 rounded-lg bg-slate-800 shadow-lg ring-1 ring-opacity-5">
               <div className="px-5 pb-6 pt-5">
                 <div className="flex items-center justify-between">
                   <div className="inline-flex items-center space-x-2">
                     <Link to={"/"}>
                       <span className=" text-orange-500 font-bold tracking-tight cursor-pointer">
-                        BookingSystem
+                        <Logo />
                       </span>
                     </Link>
                   </div>
                   <div className="-mr-2">
                     <button
-                      type="button"
+                      type="submit"
                       onClick={toggleMenu}
-                      className="inline-flex items-center justify-center rounded-md p-2 text-orange-500 hover:bg-orange-200 hover:text-orange-400 focus-visible:outline focus-visible:outline-2focus-visible:outline-offset-2"
+                      className="inline-flex items-center justify-center rounded-md p-2 text-red-500 hover:bg-red-300 hover:text-red-500 focus-visible:outline focus-visible:outline-2focus-visible:outline-offset-2"
                     >
                       <span className="sr-only">Close menu</span>
                       <RiCloseLine className="h-6 w-6" aria-hidden="true" />
@@ -96,9 +109,9 @@ const Header = () => {
                   </nav>
                 </div>
                 <Link to={"/signup"}>
-                  <span className="flex  bg-orange-500 rounded-md text-orange-100 cursor-pointer hover:bg-orange-300 hover:text-white mt-8 text-center items-center p-2">
+                  <Button className="flex  bg-red-500 rounded-md text-red-100 cursor-pointer hover:bg-red-300 hover:text-white mt-8 text-center items-center p-2">
                     Sign Up
-                  </span>
+                  </Button>
                 </Link>
               </div>
             </div>
