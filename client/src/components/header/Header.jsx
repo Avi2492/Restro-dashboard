@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { RiCloseLine, RiMenuLine } from "@remixicon/react";
 import Logo from "../logo/Logo";
 import { Button, Stack, Text } from "@chakra-ui/react";
+import ErrorPage from "../../pages/error/ErrorPage";
 const menuItems = [
   {
     name: "Home",
@@ -10,11 +11,11 @@ const menuItems = [
   },
   {
     name: "About",
-    to: "/about",
+    to: "/error-page",
   },
   {
     name: "Contact",
-    to: "/contact",
+    to: "/error-page",
   },
 ];
 
@@ -50,13 +51,13 @@ const Header = () => {
         </div>
         <div className="hidden lg:block">
           <Stack spacing={4} direction="row" align="center">
-            <Link to={"/signup"}>
+            <Link to={"/auth-page"}>
               <Button colorScheme="red" variant="outline" fontStyle={"italic"}>
                 Sign Up
               </Button>
             </Link>
             <Text>or</Text>
-            <Link to={"/login"}>
+            <Link to={"/auth-page"}>
               <Button
                 colorScheme="green"
                 variant="outline"
