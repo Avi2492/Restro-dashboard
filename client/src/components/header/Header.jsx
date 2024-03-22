@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { RiCloseLine, RiMenuLine } from "@remixicon/react";
 import Logo from "../logo/Logo";
 import { Button, Stack, Text } from "@chakra-ui/react";
-import ErrorPage from "../../pages/error/ErrorPage";
+// import ErrorPage from "../../pages/error/ErrorPage";
+import { useAuth0 } from "@auth0/auth0-react";
 const menuItems = [
   {
     name: "Home",
@@ -25,6 +26,8 @@ const Header = () => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+
+  const { loginWithRedirect } = useAuth0();
   return (
     <div className="relative w-full shadow-lg">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 lg:px-8">
@@ -57,15 +60,15 @@ const Header = () => {
               </Button>
             </Link>
             <Text>or</Text>
-            <Link to={"/auth-page"}>
-              <Button
-                colorScheme="green"
-                variant="outline"
-                fontStyle={"italic"}
-              >
-                Login
-              </Button>
-            </Link>
+
+            <Button
+              colorScheme="green"
+              variant="outline"
+              fontStyle={"italic"}
+              onClick={async () => await loginWithRedirect()}
+            >
+              Login
+            </Button>
           </Stack>
         </div>
         <div className="lg:hidden">
